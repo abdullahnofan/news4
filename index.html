@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الأردن اليوم - الإنجاز والتميز</title>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <title>الأردن اليوم - أخبار الأردن والعالم</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,228 +13,197 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-orange: #ff6b35;
+            --secondary-orange: #ff8c42;
+            --light-orange: #ffab73;
+            --dark-orange: #e55527;
+            --pure-black: #000000;
+            --dark-gray: #1a1a1a;
+            --medium-gray: #333333;
+            --light-gray: #666666;
+            --pure-white: #ffffff;
+            --off-white: #f8f9fa;
+            --border-color: #e0e0e0;
+            --hover-bg: #f5f5f5;
+        }
+
         body {
             font-family: 'Cairo', sans-serif;
-            line-height: 1.8;
-            color: #2c3e50;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #ffecd2 100%);
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
+            line-height: 1.7;
+            color: var(--pure-black);
+            background: var(--pure-white);
+            font-size: 16px;
+            font-weight: 400;
         }
 
-        /* خلفية متحركة */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 40% 40%, rgba(120, 219, 226, 0.2) 0%, transparent 50%);
-            animation: backgroundMove 20s ease-in-out infinite;
-            z-index: -2;
-        }
-
-        @keyframes backgroundMove {
-            0%, 100% { transform: translateX(0) translateY(0) rotate(0deg); }
-            33% { transform: translateX(30px) translateY(-20px) rotate(1deg); }
-            66% { transform: translateX(-20px) translateY(10px) rotate(-1deg); }
-        }
-
+        /* Container */
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95);
-            min-height: 100vh;
-            box-shadow: 0 0 100px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0 20px;
         }
 
+        /* Header */
         .header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #3d6cb9 100%);
-            color: white;
-            padding: 40px 0;
-            position: relative;
-            overflow: hidden;
+            background: var(--pure-white);
+            border-bottom: 3px solid var(--primary-orange);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        /* تأثير الألماس المتحرك */
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -100%;
-            left: -100%;
-            width: 300%;
-            height: 300%;
-            background: 
-                linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 35%, transparent 40%),
-                linear-gradient(-45deg, transparent 60%, rgba(255,215,0,0.2) 65%, transparent 70%);
-            animation: diamondShine 4s linear infinite;
+        .header-top {
+            background: var(--pure-black);
+            color: var(--pure-white);
+            padding: 8px 0;
+            font-size: 14px;
         }
 
-        @keyframes diamondShine {
-            0% { transform: translateX(-100%) translateY(-100%); }
-            100% { transform: translateX(100%) translateY(100%); }
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .date-time {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: var(--pure-white);
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-orange);
+        }
+
+        .header-main {
+            padding: 20px 0;
         }
 
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 30px;
-            position: relative;
-            z-index: 3;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 20px;
         }
 
-        /* علم الأردن المحسن */
-        .jordan-flag {
-            width: 120px;
-            height: 80px;
-            position: relative;
-            border: 4px solid #FFD700;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 
-                0 15px 35px rgba(0,0,0,0.3),
-                inset 0 2px 5px rgba(255,255,255,0.2);
-            transform: perspective(1000px) rotateY(-5deg);
-            transition: all 0.3s ease;
-        }
-
-        .jordan-flag:hover {
-            transform: perspective(1000px) rotateY(0deg) scale(1.05);
-            box-shadow: 
-                0 20px 50px rgba(0,0,0,0.4),
-                inset 0 2px 5px rgba(255,255,255,0.3);
-        }
-
-        .flag-black {
-            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
-            height: 26.67px;
-            width: 100%;
-            position: relative;
-        }
-
-        .flag-white {
-            background: linear-gradient(135deg, #fff 0%, #f8f8f8 100%);
-            height: 26.67px;
-            width: 100%;
-            position: relative;
-        }
-
-        .flag-green {
-            background: linear-gradient(135deg, #007A3D 0%, #006633 100%);
-            height: 26.66px;
-            width: 100%;
-            position: relative;
-        }
-
-        /* المثلث الأحمر المحسن */
-        .flag-triangle {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 0;
-            border-style: solid;
-            border-width: 40px 0 40px 50px;
-            border-color: transparent transparent transparent #CE1126;
-            background: linear-gradient(135deg, #CE1126 0%, #B71C1C 100%);
-            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
-        }
-
-        /* النجمة السباعية المحسنة */
-        .flag-star {
-            position: absolute;
-            top: 50%;
-            left: 18px;
-            transform: translateY(-50%);
-            color: #fff;
-            font-size: 16px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-            animation: starTwinkle 3s ease-in-out infinite;
-        }
-
-        @keyframes starTwinkle {
-            0%, 100% { opacity: 1; transform: translateY(-50%) scale(1); }
-            50% { opacity: 0.8; transform: translateY(-50%) scale(1.1); }
-        }
-
-        /* اسم الجريدة المحسن */
-        .newspaper-name {
-            font-family: 'Amiri', serif;
-            font-size: 4em;
-            font-weight: 700;
-            background: linear-gradient(45deg, #FFD700 0%, #FFA500 25%, #FF8C00 50%, #FFD700 75%, #FFFF00 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            animation: titleGlow 3s ease-in-out infinite;
-            position: relative;
-        }
-
-        @keyframes titleGlow {
-            0%, 100% { filter: brightness(1) drop-shadow(0 0 5px rgba(255, 215, 0, 0.5)); }
-            50% { filter: brightness(1.2) drop-shadow(0 0 15px rgba(255, 215, 0, 0.8)); }
-        }
-
-        .tagline {
-            font-size: 1.3em;
-            opacity: 0.95;
-            margin-top: 8px;
-            font-weight: 400;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-        }
-
-        .date-section {
-            text-align: left;
-            font-size: 1.3em;
-            opacity: 0.9;
-            background: rgba(255,255,255,0.1);
-            padding: 20px;
+        .logo-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--dark-orange) 100%);
             border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .main-content {
-            padding: 60px 40px;
-            max-width: 1300px;
-            margin: 0 auto;
-        }
-
-        /* الأخبار العاجلة المحسنة */
-        .breaking-news {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 50%, #ff3838 100%);
-            color: white;
-            padding: 20px 40px;
-            margin: -30px -20px 50px -20px;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--pure-white);
+            font-size: 24px;
             font-weight: 700;
-            font-size: 1.4em;
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
             position: relative;
             overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(238, 90, 36, 0.4);
-            animation: breakingPulse 2s ease-in-out infinite;
         }
 
-        @keyframes breakingPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.02); }
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.2) 50%, transparent 70%);
+            animation: logoShine 3s ease-in-out infinite;
+        }
+
+        @keyframes logoShine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .logo-text h1 {
+            font-family: 'Amiri', serif;
+            font-size: 2.8em;
+            font-weight: 700;
+            color: var(--pure-black);
+            margin-bottom: 5px;
+            position: relative;
+        }
+
+        .logo-text p {
+            font-size: 14px;
+            color: var(--light-gray);
+            font-weight: 500;
+        }
+
+        .header-ad {
+            max-width: 300px;
+            height: 80px;
+            background: var(--off-white);
+            border: 2px dashed var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-gray);
+            border-radius: 8px;
+        }
+
+        /* Navigation */
+        .nav {
+            background: var(--dark-gray);
+            padding: 0;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 15px 25px;
+            color: var(--pure-white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: var(--primary-orange);
+            color: var(--pure-white);
+        }
+
+        /* Breaking News */
+        .breaking-news {
+            background: var(--primary-orange);
+            color: var(--pure-white);
+            padding: 12px 0;
+            position: relative;
+            overflow: hidden;
         }
 
         .breaking-news::before {
@@ -253,394 +222,878 @@
             100% { left: 100%; }
         }
 
-        .breaking-icon {
-            display: inline-block;
-            margin-left: 15px;
-            animation: pulse 1.5s infinite;
-            font-size: 1.2em;
+        .breaking-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .breaking-label {
+            background: var(--pure-white);
+            color: var(--primary-orange);
+            padding: 5px 15px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .breaking-text {
+            font-weight: 600;
+            font-size: 16px;
+            animation: textScroll 15s linear infinite;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 40px 0;
+            background: var(--pure-white);
+        }
+
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        /* Article */
+        .article {
+            background: var(--pure-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color);
         }
 
         .article-header {
-            text-align: center;
-            margin-bottom: 60px;
+            padding: 30px;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        /* العنوان الرئيسي المحسن */
-        .main-headline {
-            font-family: 'Amiri', serif;
-            font-size: 4.2em;
-            font-weight: 700;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #4facfe 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 25px;
-            line-height: 1.2;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-            position: relative;
-        }
-
-        /* تأثيرات متقدمة للأقسام */
-        .hero-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            color: white;
-            padding: 80px 50px;
-            margin: 50px -20px;
-            border-radius: 30px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.3);
-        }
-
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: 
-                radial-gradient(circle at 30% 70%, rgba(255,255,255,0.1) 0%, transparent 50%),
-                radial-gradient(circle at 70% 30%, rgba(255,255,255,0.05) 0%, transparent 50%);
-            animation: heroFloat 8s ease-in-out infinite;
-        }
-
-        @keyframes heroFloat {
-            0%, 100% { transform: rotate(0deg) translateX(0); }
-            50% { transform: rotate(180deg) translateX(20px); }
-        }
-
-        /* صندوق الإنجازات المحسن */
-        .meta-achievement {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #43e97b 100%);
-            color: white;
-            padding: 40px;
-            margin: 40px 0;
-            border-radius: 25px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(79, 172, 254, 0.4);
-            border: 2px solid rgba(255,255,255,0.2);
-        }
-
-        .meta-logo {
-            font-size: 3em;
-            font-weight: 900;
-            margin-bottom: 15px;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
-            animation: logoFloat 4s ease-in-out infinite;
-        }
-
-        @keyframes logoFloat {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(2deg); }
-        }
-
-        /* الصناديق المميزة المحسنة */
-        .highlight-box {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f1f3f4 100%);
-            border-right: 12px solid transparent;
-            border-image: linear-gradient(45deg, #1e3c72, #2a5298, #4facfe) 1;
-            padding: 50px;
-            margin: 50px 0;
+        .article-category {
+            display: inline-block;
+            background: var(--primary-orange);
+            color: var(--pure-white);
+            padding: 6px 15px;
             border-radius: 20px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+
+        .article-title {
+            font-family: 'Amiri', serif;
+            font-size: 2.2em;
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--pure-black);
+            margin-bottom: 15px;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            color: var(--light-gray);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .article-meta i {
+            color: var(--primary-orange);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            margin-bottom: 30px;
+        }
+
+        .article-content {
+            padding: 0 30px 30px;
+        }
+
+        .article-text {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            text-align: justify;
+            color: var(--pure-black);
+        }
+
+        .article-text:first-letter {
+            font-size: 4em;
+            font-weight: 700;
+            float: right;
+            line-height: 1;
+            margin: 0 0 5px 10px;
+            color: var(--primary-orange);
+            font-family: 'Amiri', serif;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, var(--off-white) 0%, #fafafa 100%);
+            border-right: 5px solid var(--primary-orange);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+        }
+
+        .highlight-title {
+            font-weight: 700;
+            font-size: 1.2em;
+            color: var(--pure-black);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .highlight-title i {
+            color: var(--primary-orange);
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: var(--pure-white);
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
             transition: all 0.3s ease;
         }
 
-        .highlight-box::before {
+        .stat-item:hover {
+            border-color: var(--primary-orange);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.15);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--primary-orange);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: var(--light-gray);
+            font-weight: 500;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sidebar-widget {
+            background: var(--pure-white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+        }
+
+        .widget-header {
+            background: var(--pure-black);
+            color: var(--pure-white);
+            padding: 15px 20px;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .widget-header::after {
             content: '';
             position: absolute;
-            top: -20px;
-            right: 40px;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-orange), var(--secondary-orange));
+        }
+
+        .widget-content {
+            padding: 20px;
+        }
+
+        /* News List */
+        .news-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-item:hover {
+            background: var(--hover-bg);
+            margin: 0 -20px;
+            padding: 15px 20px;
+            border-radius: 8px;
+        }
+
+        .news-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        .news-content h4 {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 8px;
+            color: var(--pure-black);
+        }
+
+        .news-content p {
+            font-size: 12px;
+            color: var(--light-gray);
+        }
+
+        /* Tags */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .tag {
+            background: var(--off-white);
+            color: var(--medium-gray);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .tag:hover {
+            background: var(--primary-orange);
+            color: var(--pure-white);
+            border-color: var(--primary-orange);
+        }
+
+        /* Share Buttons */
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+            margin: 30px 0;
+            justify-content: center;
+        }
+
+        .share-btn {
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2em;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            color: var(--pure-white);
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s ease;
         }
 
-        .highlight-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 35px 70px rgba(0,0,0,0.2);
+        .share-btn.facebook { background: #3b5998; }
+        .share-btn.twitter { background: #1da1f2; }
+        .share-btn.whatsapp { background: #25d366; }
+        .share-btn.telegram { background: #0088cc; }
+
+        .share-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
-        /* قائمة النقاط المحسنة */
-        .bullet-list li::before {
-            content: '⭐';
-            position: absolute;
-            right: 0;
-            top: 0;
-            color: #FFD700;
-            font-size: 1.3em;
-            animation: starRotate 4s linear infinite;
-        }
-
-        @keyframes starRotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* قسم الاقتباس المحسن */
-        .quote-section {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #667eea 100%);
-            color: white;
-            padding: 70px;
-            margin: 60px -20px;
-            border-radius: 30px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 30px 80px rgba(30, 60, 114, 0.4);
-        }
-
-        .quote-section::before {
-            content: '"';
-            position: absolute;
-            top: -30px;
-            right: 40px;
-            font-size: 12em;
-            opacity: 0.1;
-            font-family: serif;
-            background: linear-gradient(45deg, #FFD700, #FFA500);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* الفوتر المحسن */
+        /* Footer */
         .footer {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #4a6741 100%);
-            color: white;
+            background: var(--pure-black);
+            color: var(--pure-white);
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
             text-align: center;
-            padding: 60px 40px;
-            margin-top: 80px;
-            position: relative;
-            overflow: hidden;
         }
 
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 0%, transparent 70%);
+        .footer-logo {
+            font-family: 'Amiri', serif;
+            font-size: 2em;
+            font-weight: 700;
+            color: var(--primary-orange);
+            margin-bottom: 15px;
         }
 
-        /* تحسينات الاستجابة */
+        .footer-text {
+            max-width: 600px;
+            margin: 0 auto 20px;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-orange);
+        }
+
+        .copyright {
+            border-top: 1px solid #333;
+            margin-top: 20px;
+            padding-top: 20px;
+            font-size: 14px;
+            color: #999;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .newspaper-name { font-size: 2.8em; }
-            .main-headline { font-size: 3em; }
-            .jordan-flag { width: 90px; height: 60px; }
-            .header-content { flex-direction: column; gap: 25px; text-align: center; }
-            .main-content { padding: 40px 25px; }
-            .hero-section { padding: 50px 30px; margin: 30px -15px; }
-            .breaking-news { padding: 15px 25px; font-size: 1.2em; }
+            .container {
+                padding: 0 15px;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .header-ad {
+                display: none;
+            }
+            
+            .logo-text h1 {
+                font-size: 2.2em;
+            }
+            
+            .nav-list {
+                flex-wrap: wrap;
+            }
+            
+            .nav-link {
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+            
+            .content-wrapper {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .article-title {
+                font-size: 1.8em;
+            }
+            
+            .article-image {
+                height: 250px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .breaking-content {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .date-time {
+                flex-direction: column;
+                gap: 5px;
+                font-size: 12px;
+            }
+            
+            .footer-links {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
         }
 
-        /* تأثيرات تفاعلية إضافية */
-        .interactive-element {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        /* Loading Animation */
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
         }
 
-        .interactive-element:hover {
-            transform: translateY(-2px) scale(1.02);
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* تحريك العناصر عند التحميل */
-        @keyframes slideInFromRight {
-            0% { transform: translateX(100px); opacity: 0; }
-            100% { transform: translateX(0); opacity: 1; }
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
         }
 
-        @keyframes slideInFromLeft {
-            0% { transform: translateX(-100px); opacity: 0; }
-            100% { transform: translateX(0); opacity: 1; }
+        /* Selection Color */
+        ::selection {
+            background: var(--primary-orange);
+            color: var(--pure-white);
         }
 
-        .slide-in-right { animation: slideInFromRight 0.8s ease-out; }
-        .slide-in-left { animation: slideInFromLeft 0.8s ease-out; }
-
-        /* تأثير اللمعان على النصوص */
-        .sparkle-text {
-            background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700, #FFFF00);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: textSparkle 3s ease-in-out infinite;
-        }
-
-        @keyframes textSparkle {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+        /* Focus States */
+        a:focus,
+        button:focus {
+            outline: 2px solid var(--primary-orange);
+            outline-offset: 2px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <div class="header-content slide-in-right">
-                <div class="logo">
-                    <div class="jordan-flag interactive-element">
-                        <div class="flag-black"></div>
-                        <div class="flag-white"></div>
-                        <div class="flag-green"></div>
-                        <div class="flag-triangle"></div>
-                        <div class="flag-star">⭐</div>
-                    </div>
-                    <div>
-                        <div class="newspaper-name sparkle-text">الأردن اليوم</div>
-                        <div class="tagline">الإنجاز والتميز</div>
-                    </div>
-                </div>
-                <div class="date-section slide-in-left">
-                    <div><i class="fas fa-calendar-alt"></i> الأربعاء</div>
-                    <div>17 سبتمبر 2025</div>
-                </div>
+    <!-- Header Top -->
+    <div class="header-top">
+        <div class="container">
+            <div class="date-time">
+                <span><i class="fas fa-calendar-alt"></i> الأربعاء 17 سبتمبر 2025</span>
+                <span><i class="fas fa-clock"></i> <span id="current-time"></span></span>
             </div>
-        </header>
-
-        <main class="main-content">
-            <div class="breaking-news interactive-element">
-                <span class="breaking-icon">🔴</span>
-                عاجل: إنجاز أردني جديد في عالم التكنولوجيا
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
             </div>
-
-            <article class="article-header slide-in-right">
-                <h1 class="main-headline">عبدالله نوفان يحقق إنجازاً مميزاً في شركة ميتا العالمية</h1>
-                <div class="byline"><i class="fas fa-map-marker-alt"></i> عمان - الأردن اليوم</div>
-                <div class="article-meta">
-                    <i class="fas fa-edit"></i> تحرير: فريق الأخبار التقنية | 
-                    <i class="fas fa-clock"></i> 17 سبتمبر 2025
-                </div>
-            </article>
-
-            <div class="hero-section interactive-element slide-in-left">
-                <div class="hero-content">
-                    <h2 class="hero-title">🎉 ترقية استثنائية لمهندس أردني</h2>
-                    <p class="hero-description">
-                        حقق المهندس الأردني عبدالله نوفان إنجازاً مميزاً بحصوله على منصب مدير الدعم الفني للشرق الأوسط في شركة ميتا، مع التركيز الخاص على الأردن
-                    </p>
-                </div>
-            </div>
-
-            <div class="meta-achievement interactive-element slide-in-right">
-                <div class="meta-logo">META</div>
-                <p><strong>المنصب الجديد:</strong> مدير الدعم الفني للشرق الأوسط والأردن</p>
-                <p><i class="fas fa-trophy"></i> إنجاز تقني رائد</p>
-            </div>
-
-            <section class="content-section slide-in-left">
-                <h2 class="section-title">تفاصيل الترقية الجديدة</h2>
-                <p class="content-text">
-                    تأتي هذه الترقية المميزة تقديراً لخبرة المهندس نوفان الواسعة وإنجازاته المتميزة في مجال التكنولوجيا والدعم الفني. هذا المنصب الجديد يعكس الثقة الكبيرة التي تضعها شركة ميتا في الكفاءات الأردنية والعربية.
-                </p>
-
-                <div class="highlight-box interactive-element">
-                    <h3 class="highlight-title">المسؤوليات الجديدة</h3>
-                    <ul class="bullet-list">
-                        <li>إدارة فرق الدعم الفني في منطقة الشرق الأوسط</li>
-                        <li>تطوير استراتيجيات الدعم التقني للمستخدمين في المنطقة</li>
-                        <li>تعزيز الشراكات التقنية مع المؤسسات الأردنية والعربية</li>
-                        <li>قيادة المبادرات التقنية الجديدة في المنطقة</li>
-                        <li>تدريب وتطوير الفرق التقنية المحلية</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section class="content-section slide-in-right">
-                <h2 class="section-title">أهمية هذا التعيين للأردن</h2>
-                <p class="content-text">
-                    يعتبر تعيين المهندس نوفان في هذا المنصب الرفيع خطوة مهمة لتعزيز مكانة الأردن في خريطة التكنولوجيا العالمية. هذا التعيين يبرز عدة نقاط مهمة تؤكد على قوة الكوادر الأردنية في المجال التقني.
-                </p>
-
-                <div class="highlight-box interactive-element">
-                    <h3 class="highlight-title">الدلالات المهمة</h3>
-                    <ul class="bullet-list">
-                        <li>الثقة الدولية في الكفاءات الأردنية المتخصصة</li>
-                        <li>قدرة المواهب الأردنية على المنافسة في الأسواق العالمية</li>
-                        <li>إمكانية الأردن في أن يكون مركزاً تقنياً إقليمياً مهماً</li>
-                        <li>تعزيز صورة الأردن كوجهة للاستثمار التقني</li>
-                        <li>فتح آفاق جديدة للتعاون التكنولوجي الدولي</li>
-                    </ul>
-                </div>
-            </section>
-
-            <div class="quote-section interactive-element">
-                <p class="quote-text">
-                    هذا الإنجاز يشكل مصدر فخر لكل أردني، ويؤكد أن أبناء الأردن قادرون على تحقيق النجاح والتميز في أكبر الشركات العالمية عندما تتوفر لهم الفرص المناسبة
-                </p>
-            </div>
-
-            <section class="content-section slide-in-left">
-                <h2 class="section-title">رسالة إلى الشباب الأردني</h2>
-                <p class="content-text">
-                    يشكل إنجاز المهندس عبدالله نوفان مصدر إلهام كبير للشباب الأردني في جميع التخصصات، خاصة في مجال التكنولوجيا والهندسة. هذا النجاح يؤكد أن العمل الجاد، والتطوير المستمر للذات، والسعي نحو التميز يمكن أن يفتح آفاقاً واسعة في أكبر الشركات العالمية.
-                </p>
-            </section>
-
-            <section class="content-section slide-in-right">
-                <h2 class="section-title">نظرة مستقبلية</h2>
-                <p class="content-text">
-                    من المتوقع أن يساهم تعيين المهندس نوفان في هذا المنصب المهم في تطوير قطاع التكنولوجيا في الأردن بشكل كبير، وتعزيز الشراكات الاستراتيجية مع الشركات العالمية الكبرى. هذا التطور قد يفتح المجال لمزيد من فرص الاستثمار التقني والتطوير في المملكة الأردنية الهاشمية.
-                </p>
-            </section>
-        </main>
-
-        <footer class="footer">
-            <div class="footer-content">
-                <h3 class="footer-title sparkle-text">الأردن اليوم</h3>
-                <p class="footer-text">
-                    <i class="fas fa-heart" style="color: #e74c3c;"></i>
-                    نتقدم بأحر التهاني للمهندس عبدالله نوفان على هذا الإنجاز المتميز، متمنين له المزيد من النجاح والتقدم في مسيرته المهنية. إن هذا النجاح يعكس جودة التعليم الأردني وقدرة الكوادر الأردنية على المنافسة عالمياً.
-                </p>
-                <div style="margin-top: 20px;">
-                    <i class="fas fa-crown" style="color: #f39c12; font-size: 1.5em;"></i>
-                </div>
-            </div>
-        </footer>
+        </div>
     </div>
 
+    <!-- Header Main -->
+    <header class="header">
+        <div class="header-main">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <div class="logo-text">
+                            <h1>الأردن اليوم</h1>
+                            <p>أخبار الأردن والعالم - الإنجاز والتميز</p>
+                        </div>
+                    </div>
+                    <div class="header-ad">
+                        <span>مساحة إعلانية</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#" class="nav-link active">الرئيسية</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">محليات</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">رياضة</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">اقتصاد</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">تكنولوجيا</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">ثقافة</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">عالمية</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">مقالات</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breaking News -->
+    <div class="breaking-news">
+        <div class="container">
+            <div class="breaking-content">
+                <div class="breaking-label">عاجل</div>
+                <div class="breaking-text">إنجاز أردني جديد في بطولة العالم للشباب للمواي تاي - أبوظبي 2025</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="content-wrapper">
+                <!-- Article -->
+                <article class="article fade-in">
+                    <div class="article-header">
+                        <span class="article-category">رياضة</span>
+                        <h1 class="article-title">إنجاز أردني جديد في بطولة العالم للشباب للمواي تاي - أبوظبي 2025</h1>
+                        <div class="article-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> عمان - الأردن اليوم</span>
+                            <span><i class="fas fa-clock"></i> منذ ساعتين</span>
+                            <span><i class="fas fa-eye"></i> 1,245 مشاهدة</span>
+                            <span><i class="fas fa-user"></i> فريق التحرير الرياضي</span>
+                        </div>
+                    </div>
+
+                    <img src="image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%23f8f9fa'/%3E%3Ctext x='400' y='200' text-anchor='middle' font-family='Cairo, sans-serif' font-size='24' fill='%23666'%3E%D8%A7%D9%84%D9%81%D8%B1%D9%8A%D9%82 %D8%A7%D9%84%D8%A3%D8%B1%D8%AF%D9%86%D9%8A %D9%84%D9%84%D9%85%D9%88%D8%A7%D9%8A %D8%AA%D8%A7%D9%8A%3C/text%3E%3C/svg%3E" alt="الفريق الأردني للمواي تاي" class="article-image">
+
+                    <div class="article-content">
+                        <p class="article-text">
+                            حقق المنتخب الأردني للمواي تاي إنجازاً رائعاً في بطولة العالم للشباب المقامة في أبوظبي 2025، حيث تمكن أبطالنا من تحقيق نتائج مميزة تضع الأردن في مقدمة الدول العربية في هذه الرياضة القتالية المثيرة.
+                        </p>
+
+                        <div class="highlight-box">
+                            <h3 class="highlight-title">
+                                <i class="fas fa-trophy"></i>
+                                إنجازات الفريق الأردني
+                            </h3>
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <span class="stat-number">3</span>
+                                    <span class="stat-label">ميداليات ذهبية</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">2</span>
+                                    <span class="stat-label">ميداليات فضية</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">1</span>
+                                    <span class="stat-label">ميدالية برونزية</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">12</span>
+                                    <span class="stat-label">لاعب مشارك</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="article-text">
+                            وقد أشاد الاتحاد الأردني للمواي تاي بالإنجاز المتميز الذي حققه اللاعبون، مؤكداً أن هذا النجاح ثمرة العمل الدؤوب والتدريب المكثف الذي خضع له الفريق على مدار الأشهر الماضية تحت إشراف الجهاز الفني المتخصص.
+                        </p>
+
+                        <div class="highlight-box">
+                            <h3 class="highlight-title">
+                                <i class="fas fa-star"></i>
+                                أبرز النجوم الأردنية
+                            </h3>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="padding: 10px 0; border-bottom: 1px solid #eee;">
+                                    <strong>محمد العمري</strong> - ذهبية وزن 60 كيلو
+                                </li>
+                                <li style="padding: 10px 0; border-bottom: 1px solid #eee;">
+                                    <strong>أحمد الزعبي</strong> - ذهبية وزن 67 كيلو
+                                </li>
+                                <li style="padding: 10px 0; border-bottom: 1px solid #eee;">
+                                    <strong>سارة النسور</strong> - ذهبية وزن 57 كيلو (سيدات)
+                                </li>
+                                <li style="padding: 10px 0;">
+                                    <strong>يوسف الحمود</strong> - فضية وزن 71 كيلو
+                                </li>
+                            </ul>
+                        </div>
+
+                        <p class="article-text">
+                            ويأتي هذا الإنجاز ليؤكد مكانة الأردن المتقدمة في رياضة المواي تاي على المستوى العربي والآسيوي، حيث استطاع اللاعبون الأردنيون إثبات جدارتهم أمام منافسين أقوياء من مختلف قارات العالم، مما يبشر بمستقبل مشرق لهذه الرياضة في المملكة الأردنية الهاشمية.
+                        </p>
+
+                        <p class="article-text">
+                            وعبر رئيس الاتحاد الأردني للمواي تاي عن فخره واعتزازه بما حققه أبطال الأردن، مؤكداً أن هذا الإنجاز سيكون حافزاً لمزيد من العمل والتطوير في هذه الرياضة، ودعا إلى ضرورة الاستثمار أكثر في المواهب الشابة لضمان استمرار التفوق الأردني.
+                        </p>
+
+                        <!-- Share Buttons -->
+                        <div class="share-buttons">
+                            <a href="#" class="share-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="share-btn twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="share-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" class="share-btn telegram"><i class="fab fa-telegram-plane"></i></a>
+                        </div>
+
+                        <!-- Tags -->
+                        <div class="tags">
+                            <a href="#" class="tag">مواي تاي</a>
+                            <a href="#" class="tag">رياضة أردنية</a>
+                            <a href="#" class="tag">بطولة عالمية</a>
+                            <a href="#" class="tag">أبوظبي</a>
+                            <a href="#" class="tag">إنجاز</a>
+                            <a href="#" class="tag">ميداليات</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <!-- Latest News -->
+                    <div class="sidebar-widget fade-in">
+                        <div class="widget-header">
+                            <h3>أحدث الأخبار</h3>
+                        </div>
+                        <div class="widget-content">
+                            <div class="news-item">
+                                <img src="image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' fill='%23e9ecef'/%3E%3Ctext x='40' y='40' text-anchor='middle' font-size='12' fill='%23666'%3E%D8%B5%D9%88%D8%B1%D8%A9%3C/text%3E%3C/svg%3E" alt="خبر" class="news-image">
+                                <div class="news-content">
+                                    <h4>تطوير جديد في قطاع التكنولوجيا الأردني</h4>
+                                    <p>منذ 30 دقيقة</p>
+                                </div>
+                            </div>
+                            <div class="news-item">
+                                <img src="image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' fill='%23e9ecef'/%3E%3Ctext x='40' y='40' text-anchor='middle' font-size='12' fill='%23666'%3E%D8%B5%D9%88%D8%B1%D8%A9%3C/text%3E%3C/svg%3E" alt="خبر" class="news-image">
+                                <div class="news-content">
+                                    <h4>افتتاح مشروع عمراني جديد في عمان</h4>
+                                    <p>منذ ساعة</p>
+                                </div>
+                            </div>
+                            <div class="news-item">
+                                <img src="image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' fill='%23e9ecef'/%3E%3Ctext x='40' y='40' text-anchor='middle' font-size='12' fill='%23666'%3E%D8%B5%D9%88%D8%B1%D8%A9%3C/text%3E%3C/svg%3E" alt="خبر" class="news-image">
+                                <div class="news-content">
+                                    <h4>نمو الاقتصاد الأردني في الربع الثالث</h4>
+                                    <p>منذ ساعتين</p>
+                                </div>
+                            </div>
+                            <div class="news-item">
+                                <img src="image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' fill='%23e9ecef'/%3E%3Ctext x='40' y='40' text-anchor='middle' font-size='12' fill='%23666'%3E%D8%B5%D9%88%D8%B1%D8%A9%3C/text%3E%3C/svg%3E" alt="خبر" class="news-image">
+                                <div class="news-content">
+                                    <h4>مبادرة جديدة لدعم الشباب الأردني</h4>
+                                    <p>منذ 3 ساعات</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Advertisement -->
+                    <div class="sidebar-widget">
+                        <div class="widget-content" style="text-align: center; padding: 40px 20px; background: var(--off-white); color: var(--light-gray);">
+                            <i class="fas fa-ad" style="font-size: 3em; margin-bottom: 15px; color: var(--border-color);"></i>
+                            <h4>مساحة إعلانية</h4>
+                            <p>300 × 250</p>
+                        </div>
+                    </div>
+
+                    <!-- Most Read -->
+                    <div class="sidebar-widget fade-in">
+                        <div class="widget-header">
+                            <h3>الأكثر قراءة</h3>
+                        </div>
+                        <div class="widget-content">
+                            <div class="news-item">
+                                <span style="background: var(--primary-orange); color: white; width: 25px; height: 25px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 12px; flex-shrink: 0;">1</span>
+                                <div class="news-content">
+                                    <h4>ارتفاع أسعار النفط يؤثر على الأسواق العالمية</h4>
+                                    <p>5,234 مشاهدة</p>
+                                </div>
+                            </div>
+                            <div class="news-item">
+                                <span style="background: var(--secondary-orange); color: white; width: 25px; height: 25px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 12px; flex-shrink: 0;">2</span>
+                                <div class="news-content">
+                                    <h4>تطورات جديدة في القضية الفلسطينية</h4>
+                                    <p>4,821 مشاهدة</p>
+                                </div>
+                            </div>
+                            <div class="news-item">
+                                <span style="background: var(--light-orange); color: white; width: 25px; height: 25px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 12px; flex-shrink: 0;">3</span>
+                                <div class="news-content">
+                                    <h4>إنجاز جديد للجامعات الأردنية</h4>
+                                    <p>3,967 مشاهدة</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <h2 class="footer-logo">الأردن اليوم</h2>
+                <p class="footer-text">
+                    موقع إخباري أردني شامل يغطي أخبار المملكة الأردنية الهاشمية والعالم، 
+                    نسعى لتقديم المحتوى الإخباري بمهنية عالية وموضوعية تامة، 
+                    مع التركيز على الإنجازات الأردنية والتميز في جميع المجالات.
+                </p>
+                <div class="footer-links">
+                    <a href="#">عن الموقع</a>
+                    <a href="#">اتصل بنا</a>
+                    <a href="#">الإعلانات</a>
+                    <a href="#">سياسة الخصوصية</a>
+                    <a href="#">شروط الاستخدام</a>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2025 الأردن اليوم. جميع الحقوق محفوظة.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script>
-        // تأثيرات تفاعلية إضافية
+        // تحديث الوقت الحالي
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('ar-EG', {
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            });
+            document.getElementById('current-time').textContent = timeString;
+        }
+
+        // تشغيل التحديث كل ثانية
+        updateTime();
+        setInterval(updateTime, 1000);
+
+        // تأثيرات التحميل
         document.addEventListener('DOMContentLoaded', function() {
-            // تأثير التحميل المتدرج للعناصر
-            const elements = document.querySelectorAll('.slide-in-right, .slide-in-left');
+            const elements = document.querySelectorAll('.fade-in');
             elements.forEach((element, index) => {
                 element.style.animationDelay = `${index * 0.2}s`;
             });
 
-            // تأثير hover للصناديق
-            const boxes = document.querySelectorAll('.highlight-box');
-            boxes.forEach(box => {
-                box.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-10px) scale(1.02)';
-                });
-                box.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0) scale(1)';
+            // Smooth scrolling للروابط
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
                 });
             });
 
-            // تأثير النقر على العلم
-            const flag = document.querySelector('.jordan-flag');
-            flag.addEventListener('click', function() {
-                this.style.animation = 'none';
-                setTimeout(() => {
-                    this.style.animation = 'starTwinkle 3s ease-in-out infinite';
-                }, 100);
+            // تأثيرات hover للعناصر التفاعلية
+            const interactiveElements = document.querySelectorAll('.news-item, .stat-item, .share-btn');
+            interactiveElements.forEach(element => {
+                element.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                });
+                element.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
             });
         });
+
+        // تحسين الأداء - Lazy Loading للصور
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // تحسين إمكانية الوصول
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                document.body.classList.add('using-keyboard');
+            }
+        });
+
+        document.addEventListener('mousedown', function() {
+            document.body.classList.remove('using-keyboard');
+        });
+
+        // حماية من النسخ (اختياري)
+        document.addEventListener('contextmenu', function(e) {
+            // يمكن تفعيل هذا إذا أردت منع النقر بالزر الأيمن
+            // e.preventDefault();
+        });
+
+        // تتبع التفاعل (Analytics)
+        function trackEvent(eventName, element) {
+            console.log(`تم تتبع الحدث: ${eventName}`, element);
+            // هنا يمكن إضافة كود Google Analytics أو أي أداة تتبع أخرى
+        }
+
+        // تتبع النقرات على الروابط المهمة
+        document.querySelectorAll('.share-btn, .nav-link, .tag').forEach(element => {
+            element.addEventListener('click', function() {
+                trackEvent('click', this.textContent || this.className);
+            });
+        });
+
+        // تحسين SEO - إضافة structured data
+        const structuredData = {
+            "@context": "https://schema.org",
+            "@type": "NewsArticle",
+            "headline": "إنجاز أردني جديد في بطولة العالم للشباب للمواي تاي - أبوظبي 2025",
+            "datePublished": "2025-09-17",
+            "dateModified": "2025-09-17",
+            "author": {
+                "@type": "Organization",
+                "name": "الأردن اليوم"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "الأردن اليوم",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://example.com/logo.png"
+                }
+            }
+        };
+
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.textContent = JSON.stringify(structuredData);
+        document.head.appendChild(script);
+
+        // PWA Support
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                    console.log('ServiceWorker تم تسجيله بنجاح:', registration.scope);
+                }, function(err) {
+                    console.log('فشل تسجيل ServiceWorker:', err);
+                });
+            });
+        }
+
+        // Dark mode toggle (اختياري)
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+
+        // استرجاع إعداد الوضع المظلم
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
     </script>
 </body>
 </html>
